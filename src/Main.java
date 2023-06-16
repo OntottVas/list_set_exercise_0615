@@ -93,8 +93,16 @@ public class Main {
             listOfNumbersArray.add(digitCounter(i));
         }
         for (int i = 0; i < listOfNumbersArray.size(); i++) {
-            System.out.println((i+1) + ". number's length: " + listOfNumbersArray.get(i) + " digits.");
+            System.out.println((i + 1) + ". number's length: " + listOfNumbersArray.get(i) + " digits.");
         }
+
+        System.out.println();
+
+        // TODO 5. task
+        int[] arrayOne = {1,2,5,31,80,-1,90,9,7,15,64,37};
+        int[] arrayTwo = {5,97,80,-1,5,5,4,64,64,64,37,37};
+
+        System.out.println(arraysUnion(arrayOne, arrayTwo));
 
     }
 
@@ -107,4 +115,21 @@ public class Main {
         }
         return counter;
     }
+
+    public static List<Integer> arraysUnion(int[] arrayOne, int[] arrayTwo) {
+        Set<Integer> firstSet = new HashSet<>();
+        Set<Integer> secondSet = new HashSet<>();
+
+        for (int i : arrayOne) {
+            firstSet.add(i);
+        }
+        for (int i : arrayTwo) {
+            secondSet.add(i);
+        }
+
+        firstSet.retainAll(secondSet);
+
+        return new ArrayList<>(firstSet);
+    }
+
 }
