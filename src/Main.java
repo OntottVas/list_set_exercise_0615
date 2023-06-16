@@ -70,5 +70,41 @@ public class Main {
             }
             System.out.println(i + " rolled " + rolled + " times");
         }
+        System.out.println();
+
+        // TODO 4. task
+        int[] numbersArray = {34808, 422, 334, 12014, 412617, 292389, 342260, 32244, 334534, 497721, 3775, 544,
+                433, 55340, 257952, 1496173, 73, 539141, 3355, 305720, 3677429, 114047, 5656};
+
+        Set<Integer> setOfNumbersArray = new HashSet<>();
+        for (Integer i : numbersArray) {
+            setOfNumbersArray.add(i);
+        }
+
+        if (setOfNumbersArray.size() == numbersArray.length) {
+            System.out.println("There are no duplicates in the given array.");
+        } else {
+            System.out.println("There are duplicates in the given array.");
+        }
+
+        List<Integer> listOfNumbersArray = new ArrayList<>();
+
+        for (int i : numbersArray) {
+            listOfNumbersArray.add(digitCounter(i));
+        }
+        for (int i = 0; i < listOfNumbersArray.size(); i++) {
+            System.out.println((i+1) + ". number's length: " + listOfNumbersArray.get(i) + " digits.");
+        }
+
+    }
+
+    public static int digitCounter(int number) {
+        int counter = 0;
+        int tmp = 1;
+        while (tmp < number) {
+            counter++;
+            tmp *= 10;
+        }
+        return counter;
     }
 }
