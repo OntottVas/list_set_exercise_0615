@@ -104,6 +104,12 @@ public class Main {
 
         System.out.println(arraysUnion(arrayOne, arrayTwo));
 
+        System.out.println();
+
+        // TODO 6. task
+        List<String> stringList = new ArrayList<>(List.of("someSome", "SOmeSome", "SOMEsome", "sOmesOme"));
+        System.out.println(characterCounter(stringList, 'o'));
+
     }
 
     public static int digitCounter(int number) {
@@ -132,4 +138,20 @@ public class Main {
         return new ArrayList<>(firstSet);
     }
 
+    public static int characterCounter(List<String> stringList, char character){
+        int counter = 0;
+        for (String s : stringList) {
+            for (int j = 0; j < s.length(); j++) {
+                if (s.charAt(j) == Character.toLowerCase(character)) {
+                    counter++;
+                    break;
+                }
+                if (s.charAt(j) == Character.toUpperCase(character)) {
+                    counter++;
+                    break;
+                }
+            }
+        }
+        return counter;
+    }
 }
